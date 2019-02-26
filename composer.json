@@ -1,0 +1,12 @@
+{
+  "name": "helvetia/api",
+  "description": "Conecto de helvetia con drupal",
+  "type": "library",
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-0": {
+      "HelloWorld": "src/"
+    }
+  }
+}
