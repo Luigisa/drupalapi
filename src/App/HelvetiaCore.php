@@ -2,7 +2,7 @@
 
 namespace Helvetia\CoreLib\App;
 
-class HelvetiaCoreLib
+class HelvetiaCore
 {
 
     /**
@@ -14,7 +14,6 @@ class HelvetiaCoreLib
      * HelvetiaCore constructor.
      *
      * @param string $serverUri
-     * @param DateProvider $dateProvider
      */
     public function __construct(string $serverUri)
     {
