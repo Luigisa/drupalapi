@@ -1,12 +1,60 @@
 {
   "name": "helvetia/api",
-  "description": "Conecto de helvetia con drupal",
+  "license": "MIT",
   "type": "library",
+  "description": "Conecto de helvetia con drupal",
   "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "php": "^7.0",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "require-dev": {
+    "phpmd/phpmd": "~2.4",
+    "squizlabs/php_codesniffer": "~2.6",
+    "fabpot/php-cs-fixer": "^1.11",
+    "phpunit/phpunit": "^4.8",
+    "php-vcr/phpunit-testlistener-vcr": "^1.1",
+    "codegyre/robo": "^0.7.1"
+  },
   "autoload": {
-    "psr-0": {
-      "HelloWorld": "src/"
+    "exclude-from-classmap": [
+      "/tests/"
+    ],
+    "psr-4": {
+      "Unicef\\CoreLib\\": "src"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Unicef\\CoreLib\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@ln-pre-commit"
+    ],
+    "post-update-cmd": [
+      "@ln-pre-commit"
+    ],
+    "ln-pre-commit": [
+      "ln -f -s ../../docs/hooks/pre-commit ./.git/hooks/pre-commit"
+    ],
+    "tdd": [
+      "bin/robo watch --load-from docs"
+    ],
+    "test-unit": [
+      "bin/phpunit -c app/phpunit_unit.xml"
+    ],
+    "test-functional": [
+      "bin/phpunit -c app/phpunit_functional.xml"
+    ],
+    "test": [
+      "@test-unit",
+      "@test-functional"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "optimize-autoloader": true
   }
 }
