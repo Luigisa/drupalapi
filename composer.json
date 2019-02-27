@@ -21,12 +21,12 @@
       "/tests/"
     ],
     "psr-4": {
-      "Unicef\\CoreLib\\": "src"
+      "Helvetia\\CoreLib\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Unicef\\CoreLib\\Tests\\": "tests"
+      "Helvetia\\CoreLib\\Tests\\": "tests"
     }
   },
   "scripts": {
