@@ -9,6 +9,8 @@
 
 # PhpStorm
 .idea
+.idea/helvetia-b2b-api.iml
+.idea/workspace.xml
 
 # __MACOSX
 .DS_Store
