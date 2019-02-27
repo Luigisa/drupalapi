@@ -4,8 +4,7 @@ namespace Helvetia\CoreLib\App;
 
 use GuzzleHttp\Client;
 
-class HelvetiaCore
-{
+class HelvetiaCore {
 
   private $serverUri;
 
@@ -18,8 +17,7 @@ class HelvetiaCore
    *
    * @param string $serverUri
    */
-  public function __construct(string $serverUri, string $action, string $user)
-  {
+  public function __construct(string $serverUri, string $action, string $user) {
     $this->serverUri = $serverUri;
     $this->action = $action;
     $this->user = $user;
@@ -30,14 +28,17 @@ class HelvetiaCore
    *
    * @return HelvetiaCore
    */
-  public static function build(string $serverUri, string $action, string $user): HelvetiaCore
-  {
+  public static function build(
+    string $serverUri,
+    string $action,
+    string $user
+  ): HelvetiaCore {
     return new self($serverUri, $action, $user);
   }
 
   public function execute() {
 
-    if($this->action == 'getDatosUsuario') {
+    if ($this->action == 'getDatosUsuario') {
       $response = $this->getDatosUsuario();
     }
 
@@ -53,7 +54,7 @@ class HelvetiaCore
     ]);
 
     $response = $client->request('GET', $requestUri, [
-      'query' => ['codUsuario' => 'MARISANT']
+      'query' => ['codUsuario' => 'MARISANT'],
     ]);
 
     return $response->getBody()->getContents();
